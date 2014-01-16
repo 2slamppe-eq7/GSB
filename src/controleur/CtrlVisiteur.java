@@ -7,11 +7,10 @@ import modele.dao.*;
 import modele.metier.*;
 import vue.VueVisiteur;
 
+
 /**
  * Contrôleur de la fenêtre VuePresence
  *
- * @author nbourgeois
- * @version 1 20 novembre 2013
  */
 public class CtrlVisiteur extends CtrlAbstrait {
     
@@ -46,7 +45,23 @@ public class CtrlVisiteur extends CtrlAbstrait {
     public void visiteurQuitter() {
         this.getCtrlPrincipal().action(EnumAction.VISITEUR_QUITTER);
     }
-
+   /**Bouton suivant. rajoute +1 a chaque utilisateur 
+    * 
+    */
+    public void visiteurSuivant(){
+        int index = getVue().getjComboBoxVisiteur().getSelectedIndex()+1;
+        if(index== getVue().getjComboBoxVisiteur().getItemCount())index=0;
+        getVue().getjComboBoxVisiteur().setSelectedIndex(index);
+    }
+    
+    /**
+     Bouton précédent enleve -1 a chaque utilisateur
+     */
+    public void visiteurPrecedent(){
+        int index = getVue().getjComboBoxVisiteur().getSelectedIndex()-1;
+        if(index== -1) index=getVue() .getjComboBoxVisiteur() .getItemCount() -1;
+        getVue().getjComboBoxVisiteur().setSelectedIndex(index);
+    }
     /**
      * chargerListeEquipiers renseigner le modèle du composant jComboBoxEquipier
      * à partir de la base de données
@@ -90,5 +105,9 @@ public class CtrlVisiteur extends CtrlAbstrait {
     public VueVisiteur getVue() {
         return (VueVisiteur) vue;
     }
+
+   
+
+   
     
 }

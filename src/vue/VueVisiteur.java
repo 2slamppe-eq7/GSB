@@ -149,7 +149,7 @@ public class VueVisiteur extends VueAbstraite {
         txtAdrs = new javax.swing.JTextField();
         jButtonPrecedent = new javax.swing.JButton();
         jButtonSuivant = new javax.swing.JButton();
-        jButtonfermer = new javax.swing.JButton();
+        jButtonQuitter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,10 +196,25 @@ public class VueVisiteur extends VueAbstraite {
         txtAdrs.setText("jTextField5");
 
         jButtonPrecedent.setText("Précédent");
+        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedentActionPerformed(evt);
+            }
+        });
 
         jButtonSuivant.setText("Suivant");
+        jButtonSuivant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSuivantActionPerformed(evt);
+            }
+        });
 
-        jButtonfermer.setText("Fermer");
+        jButtonQuitter.setText("Fermer");
+        jButtonQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQuitterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,7 +232,7 @@ public class VueVisiteur extends VueAbstraite {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSuivant)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                        .addComponent(jButtonfermer))
+                        .addComponent(jButtonQuitter))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +300,7 @@ public class VueVisiteur extends VueAbstraite {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPrecedent)
                     .addComponent(jButtonSuivant)
-                    .addComponent(jButtonfermer))
+                    .addComponent(jButtonQuitter))
                 .addGap(24, 24, 24))
         );
 
@@ -300,6 +315,18 @@ public class VueVisiteur extends VueAbstraite {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomActionPerformed
 
+    private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
+        ((CtrlVisiteur)controleur).visiteurQuitter();
+    }//GEN-LAST:event_jButtonQuitterActionPerformed
+
+    private void jButtonSuivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuivantActionPerformed
+        ((CtrlVisiteur)controleur).visiteurSuivant();
+    }//GEN-LAST:event_jButtonSuivantActionPerformed
+
+    private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
+        ((CtrlVisiteur)controleur).visiteurPrecedent();
+    }//GEN-LAST:event_jButtonPrecedentActionPerformed
+   
     /**
      * @param args the command line arguments
      */
@@ -332,8 +359,8 @@ public class VueVisiteur extends VueAbstraite {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent;
+    private javax.swing.JButton jButtonQuitter;
     private javax.swing.JButton jButtonSuivant;
-    private javax.swing.JButton jButtonfermer;
     private javax.swing.JComboBox jComboBoxLabo;
     private javax.swing.JComboBox jComboBoxSecteur;
     private javax.swing.JComboBox jComboBoxVisiteur;

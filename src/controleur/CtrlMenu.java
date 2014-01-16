@@ -22,7 +22,7 @@ public class CtrlMenu extends CtrlAbstrait {
      */
     public void fichierQuitter() {
         // Confirmer avant de quitter
-        int rep = JOptionPane.showConfirmDialog(getVue(), "Quitter l'application\nEtes-vous sûr(e) ?", "Ambulances", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int rep = JOptionPane.showConfirmDialog(getVue(), "Quitter l'application\nEtes-vous sûr(e) ?", "GSB", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (rep == JOptionPane.YES_OPTION) {
             // mettre fin à l'application
             this.getCtrlPrincipal().action(EnumAction.MENU_FICHIER_QUITTER);
