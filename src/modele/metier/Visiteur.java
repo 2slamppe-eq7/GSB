@@ -16,10 +16,10 @@ public class Visiteur {
     private String cp;
     private String ville;
     private String dateEmbauche;
-    private String codeSecteur;
-    private String codeLabo;
+    private Secteur secteur;
+    private Labo labo;
 
-    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, String dateEmbauche, String codeSecteur, String codeLabo) {
+    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, String dateEmbauche, Secteur secteur, Labo labo) {
         this.matricule = matricule;
         this.nom = nom;
         this.prenom = prenom;
@@ -27,13 +27,13 @@ public class Visiteur {
         this.cp = cp;
         this.ville = ville;
         this.dateEmbauche = dateEmbauche;
-        this.codeSecteur = codeSecteur;
-        this.codeLabo = codeLabo;
+        this.secteur = secteur;
+        this.labo = labo;
     }
 
     @Override
     public String toString() {
-        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + '}';
+        return  nom + " " + prenom;
     }
 
     public String getMatricule() {
@@ -92,28 +92,20 @@ public class Visiteur {
         this.dateEmbauche = dateEmbauche;
     }
 
-    public String getCodeSecteur() {
-        return codeSecteur;
+    public Secteur getSecteur() {
+        return secteur;
     }
 
-    public void setCodeSecteur(String codeSecteur) {
-        this.codeSecteur = codeSecteur;
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
     }
 
-    public String getCodeLabo() {
-        return codeLabo;
+    public Labo getLabo() {
+        return labo;
     }
 
-    public void setCodeLabo(String codeLabo) {
-        this.codeLabo = codeLabo;
+    public void setLabo(Labo labo) {
+        this.labo = labo;
     }
 
-    public void setSecteur(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setLabo(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

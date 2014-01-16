@@ -25,8 +25,8 @@ public class Labo {
         this.nom = "";
         this.chefVente = "";
     }
-
-    public String getCode() {
+    
+      public String getCode() {
         return code;
     }
 
@@ -48,6 +48,11 @@ public class Labo {
 
     public void setChefVente(String chefVente) {
         this.chefVente = chefVente;
+    }
+
+    @Override
+    public String toString() {
+        return nom ;
     }
     
     

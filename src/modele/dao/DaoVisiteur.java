@@ -12,7 +12,8 @@ import java.util.*;
  * @author nbourgeois
  */
 public class DaoVisiteur implements DaoInterface<Visiteur, Integer> {
-
+private DaoSecteur daoSecteur = new DaoSecteur();
+private DaoLabo daoLabo = new DaoLabo();
     /**
      * Non implémenté
      */
@@ -110,8 +111,9 @@ public class DaoVisiteur implements DaoInterface<Visiteur, Integer> {
             visiteur.setNom(rs.getString("VIS_NOM"));
             visiteur.setAdresse(rs.getString("VIS_ADRESSE"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
-            //visiteur.setSecteur(rs.getString("VIS_SECTEUR"));
-            //visiteur.setLabo(rs.getString("VIS_LABO"));
+            visiteur.setCp(rs.getString("VIS_CP"));
+            visiteur.setSecteur(daoSecteur.getOne(rs.getString("SEC_CODE")));
+            visiteur.setLabo(daoLabo.getOne(rs.getString("LAB_CODE")));
             return visiteur;
         } catch (SQLException ex) {
             throw new DaoException("DaoVisiteur - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());

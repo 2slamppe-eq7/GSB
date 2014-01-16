@@ -16,6 +16,7 @@ import vue.VueVisiteur;
 public class CtrlVisiteur extends CtrlAbstrait {
     
    private DaoVisiteur daoVisiteur = new DaoVisiteur();
+   private DaoLabo daoLabo = new DaoLabo();
 
 
     public CtrlVisiteur(CtrlPrincipal ctrlPrincipal) {
@@ -27,6 +28,7 @@ public class CtrlVisiteur extends CtrlAbstrait {
     public final void actualiser() {
         try {
             chargerListeVisiteur();
+            chargerListeLabo();
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(getVue(), "CtrlVisiteur - actualiser - " + ex.getMessage(), "Saisie des présences", JOptionPane.ERROR_MESSAGE);
         }
@@ -58,7 +60,25 @@ public class CtrlVisiteur extends CtrlAbstrait {
             getVue().getModeleJComboBoxVisiteur().addElement(unVisiteur);
         }
     }
-
+        private void chargerListeLabo() throws DaoException {
+        List<Labo> desLabos = daoLabo.getAll();
+        getVue().getModeleJComboBoxLabo().removeAllElements();
+        for (Labo unLabo : desLabos) {
+            getVue().getModeleJComboBoxLabo().addElement(unLabo);
+        }
+    }
+    
+    public void visiteurSelectionner (){
+        Visiteur visiteurSelect = (Visiteur) getVue().getjComboBoxVisiteur().getSelectedItem();
+        getVue().getTxtNom().setText(visiteurSelect.getNom());
+        getVue().getTxtPrenom().setText(visiteurSelect.getPrenom());
+        getVue().getTxtAdrs().setText(visiteurSelect.getAdresse());
+        getVue().getTxtVille().setText(visiteurSelect.getVille());
+        getVue().getTxtCp().setText(visiteurSelect.getCp());
+        getVue().getModeleJComboBoxSecteur().setSelectedItem(visiteurSelect.getSecteur());
+        getVue().getModeleJComboBoxLabo().setSelectedItem(visiteurSelect.getLabo());
+        
+    }
     /**
      * chargerLesCodesEtat renseigner le modèle du composant
      * jComboBoxEtatPresence à partir de la base de données
